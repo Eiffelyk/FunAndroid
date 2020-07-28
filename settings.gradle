@@ -1,3 +1,4 @@
+include ':lib_net'
 include ':ft_home'
 include ':ft_about_us'
 include ':lib_image_loader'
