@@ -16,8 +16,8 @@ abstract class BaseActivity<T : ViewModel, M : ViewDataBinding> : AppCompatActiv
 //        StatusBarKt.fitSystemBar(this)
         mViewDataBinding = DataBindingUtil.setContentView(this, getLayoutResId())
         initViewModel()
-        initView()
         initData()
+        initView()
     }
 
     abstract fun getLayoutResId(): Int
