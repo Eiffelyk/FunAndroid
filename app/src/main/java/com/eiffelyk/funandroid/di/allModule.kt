@@ -1,14 +1,7 @@
 package com.eiffelyk.funandroid.di
 
-import org.koin.dsl.module
+import com.eiffelyk.ft_home.di.treeViewModelModule
 
-val otherModule = module {
-    single {
-
-    }
-    single {  }
-}
-
-//val mallModule = listOf(
-//    treeViewModelModule
-//)
+val allModule = listOf(
+    treeViewModelModule
+)
