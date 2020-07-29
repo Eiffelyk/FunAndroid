@@ -33,7 +33,7 @@ class LoginLayoutBean : BaseObservable() {
     var futureName: String = "我要注册"
         get() {
             field = if (isLoginLayout) {
-                "我也注册"
+                "我要注册"
             } else {
                 "我有账号，直接登录"
             }

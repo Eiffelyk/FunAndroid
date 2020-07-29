@@ -10,4 +10,8 @@ object ConstantsPath {
      * 关于我们
      */
     const val ABOUT_US_SERVICE_PATH = "/aboutUs/aboutUs_service"
+    /**
+     * 登录
+     */
+    const val LOGIN_SERVICE_PATH = "/login/login_service"
 }

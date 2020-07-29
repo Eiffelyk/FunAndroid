@@ -36,7 +36,7 @@ class RetrofitClient private constructor() {
         }else{
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
         }
-        return HttpLoggingInterceptor()
+        return httpLoggingInterceptor
     }
 
     fun <T> create(service: Class<T>): T {

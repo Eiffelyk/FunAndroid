@@ -2,6 +2,7 @@ package com.eiffelyk.ft_login.ui
 
 import androidx.lifecycle.Observer
 import com.eiffelyk.ft_login.R
+import com.eiffelyk.ft_login.UserManager
 import com.eiffelyk.ft_login.databinding.ActivityLoginBinding
 import com.eiffelyk.ft_login.model.LoginLayoutBean
 import com.eiffelyk.lib_base.base.BaseActivity
@@ -44,11 +45,12 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
     }
 
     private fun saveUserInfo(user: User) {
-
+        UserManager.setUser(user)
+        finish()
     }
 
     private fun getRePassword(): String {
-        return mViewDataBinding.editUserName.text.toString().trim()
+        return mViewDataBinding.editRePassword.text.toString().trim()
     }
 
     private fun getPassword(): String {
@@ -56,7 +58,7 @@ class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
     }
 
     private fun getUserName(): String {
-        return mViewDataBinding.editRePassword.text.toString().trim()
+        return mViewDataBinding.editUserName.text.toString().trim()
     }
 
     private fun initEditStatus() {

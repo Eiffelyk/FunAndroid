@@ -62,4 +62,7 @@ dependencies {
 // Koin AndroidX Fragment Factory (unstable version)
     implementation "org.koin:koin-androidx-fragment:$koin_version"
 
+
+    api 'com.tencent:mmkv-static:1.2.1'
+
 }
