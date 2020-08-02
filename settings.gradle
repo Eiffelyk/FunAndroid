@@ -1,3 +1,4 @@
+include ':ft_search'
 include ':ft_login'
 include ':lib_net'
 include ':ft_home'

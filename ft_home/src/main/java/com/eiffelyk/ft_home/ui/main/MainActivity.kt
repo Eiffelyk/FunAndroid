@@ -7,6 +7,7 @@ import com.eiffelyk.ft_home.databinding.ActivityMainBinding
 import com.eiffelyk.lib_base.base.BaseActivity
 import com.eiffelyk.lib_base.service.aboutus.warp.AboutUsServiceImplWrap
 import com.eiffelyk.lib_base.service.login.warp.LoginServiceImplWrap
+import com.eiffelyk.lib_base.service.search.SearchServiceImpWrap
 import com.eiffelyk.lib_base.service.webview.warp.WebViewWarpService
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -31,7 +32,8 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             }
         }
         button.setOnClickListener {
-            AboutUsServiceImplWrap.start(this)
+//            AboutUsServiceImplWrap.start(this)
+            SearchServiceImpWrap.start(this)
         }
     }
 

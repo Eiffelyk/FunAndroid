@@ -27,8 +27,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    dataBinding{
-        enabled = true
+    buildFeatures {
+        dataBinding true
+        // for view binding:
+        // viewBinding true
     }
 }
 
@@ -48,6 +50,7 @@ dependencies {
     implementation project(":lib_net")
 
     implementation project(":ft_home")
+    implementation project(":ft_search")
     implementation project(":ft_login")
     implementation project(":ft_about_us")
 }
