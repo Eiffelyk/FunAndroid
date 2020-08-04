@@ -19,7 +19,7 @@ class SearchResultViewModel(private val searchRepository: SearchRepository) :
         this.mHotKey = hotKey
     }
 
-    fun getHotKey(): String {
+    private fun getHotKey(): String {
         return mHotKey
     }
 
@@ -61,7 +61,7 @@ class SearchResultViewModel(private val searchRepository: SearchRepository) :
         }
     }
 
-    private fun loadMoreData(key: Int, callback: PageKeyedDataSource.LoadCallback<Int, DataBean>) {
+    fun loadMoreData(key: Int, callback: PageKeyedDataSource.LoadCallback<Int, DataBean>) {
         viewModelScope.launch {
             var result = searchRepository.search(key, getHotKey())
             if (result is NetResult.Success) {

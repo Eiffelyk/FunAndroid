@@ -14,15 +14,12 @@ import androidx.fragment.app.Fragment
 import com.eiffelyk.ft_search.R
 import com.eiffelyk.ft_search.databinding.ActivitySearchBinding
 import com.eiffelyk.ft_search.ui.fragment.HotKeyFragment
+import com.eiffelyk.ft_search.ui.fragment.SearchResultFragment
 import com.eiffelyk.ft_search.ui.viewmodel.SearchViewModel
 import com.eiffelyk.lib_base.base.BaseActivity
 import com.eiffelyk.lib_base.utils.KeyBoardUtils
 
 class SearchActivity : BaseActivity<SearchViewModel, ActivitySearchBinding>() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
-    }
 
     override fun getLayoutResId(): Int = R.layout.activity_search
 
@@ -39,7 +36,9 @@ class SearchActivity : BaseActivity<SearchViewModel, ActivitySearchBinding>() {
                     }
                     mViewDataBinding.searchEdit.clearFocus()
                     KeyBoardUtils.hideKeyBoard(mViewDataBinding.searchEdit)
-//                    addFragment()
+                    addFragment(
+                        SearchResultFragment.newInstance(getInputText()!!),"SearchResultFragment"
+                    )
                     return true
                 }
                 return false
