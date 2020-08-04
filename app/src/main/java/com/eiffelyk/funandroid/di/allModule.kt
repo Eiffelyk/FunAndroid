@@ -5,6 +5,8 @@ import com.eiffelyk.ft_login.di.loginRepoModule
 import com.eiffelyk.ft_login.di.loginViewModelModules
 import com.eiffelyk.ft_search.di.searchRepositoryModule
 import com.eiffelyk.ft_search.di.searchViewModule
+import com.eiffelyk.ft_tree_detail.di.treeDetailModelView
+import com.eiffelyk.ft_tree_detail.di.treeDetailModule
 import com.eiffelyk.lib_net.net.RetrofitClient
 import com.google.gson.GsonBuilder
 import org.koin.dsl.module
@@ -22,5 +24,6 @@ val allModule = listOf(
     otherModule,
     treeViewModelModule,
     loginRepoModule, loginViewModelModules,
-    searchRepositoryModule, searchViewModule
+    searchRepositoryModule, searchViewModule,
+    treeDetailModule, treeDetailModelView
 )

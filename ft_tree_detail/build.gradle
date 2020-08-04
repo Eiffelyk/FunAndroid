@@ -1,20 +1,26 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
 apply plugin: 'com.alibaba.arouter'
+apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
 
     defaultConfig {
-        applicationId "com.eiffelyk.funandroid"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
     buildTypes {
@@ -44,14 +50,17 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation project(":lib_webview")
-    implementation project(":lib_base")
-    implementation project(":lib_image_loader")
-    implementation project(":lib_net")
+    compileOnly 'com.alibaba:arouter-api:1.5.0'
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
+    compileOnly project(":lib_net")
+    compileOnly project(":lib_base")
 
-    implementation project(":ft_home")
-    implementation project(":ft_search")
-    implementation project(":ft_tree_detail")
-    implementation project(":ft_login")
-    implementation project(":ft_about_us")
+    // Koin AndroidX Scope feature
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+
+// Koin AndroidX ViewModel feature
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+
+// Koin AndroidX Fragment Factory (unstable version)
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
 }

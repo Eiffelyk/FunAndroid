@@ -2,13 +2,13 @@ package com.eiffelyk.ft_home.ui.main
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import com.eiffelyk.ft_home.R
 import com.eiffelyk.ft_home.databinding.ActivityMainBinding
 import com.eiffelyk.lib_base.base.BaseActivity
 import com.eiffelyk.lib_base.service.aboutus.warp.AboutUsServiceImplWrap
 import com.eiffelyk.lib_base.service.login.warp.LoginServiceImplWrap
-import com.eiffelyk.lib_base.service.search.SearchServiceImpWrap
+import com.eiffelyk.lib_base.service.search.wrap.SearchServiceImpWrap
+import com.eiffelyk.lib_base.service.treedetail.wrap.TreeDetailServiceImplWarp
 import com.eiffelyk.lib_base.service.webview.warp.WebViewWarpService
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -31,7 +31,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         goSearch.setOnClickListener {
             SearchServiceImpWrap.start(this)
         }
-        goLogin.setOnClickListener(View.OnClickListener {
+        goLogin.setOnClickListener {
             Log.e("馋猫", "btn onClick")
             if (!LoginServiceImplWrap.isLogin()) {
                 Log.e("馋猫", "btn onClick")
@@ -39,7 +39,10 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
             } else {
                 Log.e("馋猫", LoginServiceImplWrap.getUserInfo().toString())
             }
-        })
+        }
+        goTreeDetail.setOnClickListener {
+            TreeDetailServiceImplWarp.start(this,60,"你好")
+        }
     }
 
     override fun initData() {

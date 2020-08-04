@@ -19,4 +19,8 @@ object ConstantsPath {
      * 搜索
      */
     const val SEARCH_SERVICE_PATH = "/search/search_service"
+    /**
+     * 体系详情
+     */
+    const val TREE_DETAIL_SERVICE_PATH = "/tree/detail_service"
 }
