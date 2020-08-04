@@ -18,7 +18,6 @@ object LoginServiceImplWrap {
     }
 
     fun start(context: Context): LiveData<User> {
-        Log.e("馋猫","start==LoginServiceImplWrap")
         return service.start(context)
     }
 

@@ -2,6 +2,7 @@ package com.eiffelyk.ft_home.ui.main
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import com.eiffelyk.ft_home.R
 import com.eiffelyk.ft_home.databinding.ActivityMainBinding
 import com.eiffelyk.lib_base.base.BaseActivity
@@ -18,23 +19,27 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         super.onCreate(savedInstanceState)
     }
 
-    override fun getLayoutResId(): Int =R.layout.activity_main
+    override fun getLayoutResId(): Int = R.layout.activity_main
 
     override fun initView() {
         buttonText.setOnClickListener {
-//            WebViewWarpService.instance.start(this,"百度","https://www.baidu.com")
-//            AboutUsServiceImplWrap.start(this)
-
-            Log.e("馋猫","btn onClick")
-            if (!LoginServiceImplWrap.isLogin()) {
-                Log.e("馋猫","btn onClick")
-                LoginServiceImplWrap.start(this)
-            }
+            WebViewWarpService.instance.start(this, "百度", "https://www.baidu.com")
         }
         button.setOnClickListener {
-//            AboutUsServiceImplWrap.start(this)
+            AboutUsServiceImplWrap.start(this)
+        }
+        goSearch.setOnClickListener {
             SearchServiceImpWrap.start(this)
         }
+        goLogin.setOnClickListener(View.OnClickListener {
+            Log.e("馋猫", "btn onClick")
+            if (!LoginServiceImplWrap.isLogin()) {
+                Log.e("馋猫", "btn onClick")
+                LoginServiceImplWrap.start(this)
+            } else {
+                Log.e("馋猫", LoginServiceImplWrap.getUserInfo().toString())
+            }
+        })
     }
 
     override fun initData() {

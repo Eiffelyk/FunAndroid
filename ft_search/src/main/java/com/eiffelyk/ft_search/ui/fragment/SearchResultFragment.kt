@@ -39,24 +39,29 @@ class SearchResultFragment : AbsListFragment<DataBean, SearchResultViewModel>() 
 
     override fun onRefresh(refreshLayout: RefreshLayout) {
         mViewModel.getDataSource()!!.invalidate()
+        page = 0
         finishRefresh()
     }
 
+    private var page: Int = 0
     override fun onLoadMore(refreshLayout: RefreshLayout) {
+        if (refreshLayout.isLoading || refreshLayout.isRefreshing) {
+            return
+        }
         val currentList = mPagedListAdapter.currentList
         if (currentList === null || currentList.size <= 0) {
             return
         }
-        val count = currentList.size / 20
-        mViewModel.loadMoreData(count, object : PageKeyedDataSource.LoadCallback<Int, DataBean>() {
+        mViewModel.loadMoreData(page, object : PageKeyedDataSource.LoadCallback<Int, DataBean>() {
             override fun onResult(data: MutableList<DataBean>, adjacentPageKey: Int?) {
+                page = adjacentPageKey!!
                 val dataSource = MutablePageKeyDtaSource<DataBean>()
                 dataSource.data.addAll(currentList)
                 dataSource.data.addAll(data)
                 val buildNewPageList = dataSource.buildNewPageList(currentList.config)
                 mPagedListAdapter.submitList(buildNewPageList)
+                finishRefresh()
             }
-
         })
     }
 }
