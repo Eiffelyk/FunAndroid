@@ -60,8 +60,14 @@ dependencies {
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
 
     api 'com.scwang.smart:refresh-layout-kernel:2.0.1'
-    api  'com.scwang.smart:refresh-footer-classics:2.0.1'
-    api  'com.scwang.smart:refresh-header-classics:2.0.1'
+    api 'com.scwang.smart:refresh-footer-classics:2.0.1'
+    api 'com.scwang.smart:refresh-header-classics:2.0.1'
+    // Kotlin
+    api "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    api "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     api 'com.alibaba:arouter-api:1.5.0'
     kapt 'com.alibaba:arouter-compiler:1.2.2'
+
+
 }

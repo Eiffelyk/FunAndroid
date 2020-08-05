@@ -5,16 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".WebViewActivity">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/title_layout"
         android:layout_width="0dp"
@@ -26,6 +16,7 @@
             android:id="@+id/back"
             android:layout_width="50dp"
             android:layout_height="0dp"
+            android:padding="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -36,6 +27,7 @@
             android:id="@+id/like"
             android:layout_width="50dp"
             android:layout_height="0dp"
+            android:padding="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -45,6 +37,9 @@
         <TextView
             android:id="@+id/titleText"
             android:layout_width="0dp"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="middle"
             android:layout_height="0dp"
             android:gravity="center"
             android:textSize="20sp"
@@ -52,19 +47,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back"
             app:layout_constraintEnd_toStartOf="@+id/like"
-            tools:text="标题" />
+            tools:text="标题"
+            tools:ignore="EllipsizeMaxLines" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-<!--    <view-->
-<!--        android:id="@+id/view_line"-->
-<!--        android:background="#f00"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/title_layout"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="1dp"/>-->
+    <View
+        android:id="@+id/viewLine"
+        android:background="#333"
+        app:layout_constraintTop_toBottomOf="@+id/title_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="1dp"/>
     <WebView
         android:id="@+id/webView"
-        app:layout_constraintTop_toBottomOf="@+id/title_layout"
+        app:layout_constraintTop_toBottomOf="@+id/viewLine"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
