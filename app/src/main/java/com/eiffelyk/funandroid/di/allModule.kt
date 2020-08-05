@@ -1,6 +1,7 @@
 package com.eiffelyk.funandroid.di
 
-import com.eiffelyk.ft_home.di.treeViewModelModule
+import com.eiffelyk.ft_home.di.mainRepoModule
+import com.eiffelyk.ft_home.di.mainViewModelModule
 import com.eiffelyk.ft_login.di.loginRepoModule
 import com.eiffelyk.ft_login.di.loginViewModelModules
 import com.eiffelyk.ft_search.di.searchRepositoryModule
@@ -22,7 +23,7 @@ val otherModule = module {
 }
 val allModule = listOf(
     otherModule,
-    treeViewModelModule,
+    mainViewModelModule, mainRepoModule,
     loginRepoModule, loginViewModelModules,
     searchRepositoryModule, searchViewModule,
     treeDetailModule, treeDetailModelView
