@@ -1,5 +1,6 @@
 package com.eiffelyk.ft_home.api
 
+import com.eiffelyk.ft_home.model.nav.NavigationItem
 import com.eiffelyk.ft_home.model.project.ProjectPageItem
 import com.eiffelyk.ft_home.model.project.ProjectTabItem
 import com.eiffelyk.ft_home.model.tree.TreeData
@@ -20,4 +21,7 @@ interface RequestCenter {
         @Path("count") count: Int,
         @Query("cid") cid: Int
     ): BaseModel<ProjectPageItem>
+
+    @GET("/navi/json")
+    suspend fun getNavigationData(): BaseModel<MutableList<NavigationItem>>
 }
