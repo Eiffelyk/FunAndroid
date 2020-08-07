@@ -1,5 +1,7 @@
 package com.eiffelyk.ft_home.di
 
+import com.eiffelyk.ft_home.ui.home.HomeListViewModel
+import com.eiffelyk.ft_home.ui.home.HomeRepository
 import com.eiffelyk.ft_home.ui.home.HomeViewModel
 import com.eiffelyk.ft_home.ui.main.MainViewModel
 import com.eiffelyk.ft_home.ui.mine.MineViewModel
@@ -18,11 +20,13 @@ val mainRepoModule = module {
     single { TreeRepository(get()) }
     single { ProjectRepository(get()) }
     single { NaviRepository(get()) }
+    single { HomeRepository(get()) }
 }
 
 var mainViewModelModule = module {
     viewModel { MainViewModel() }
-    viewModel { HomeViewModel() }
+    viewModel { HomeViewModel(get()) }
+    viewModel { HomeListViewModel(get()) }
     viewModel { ProjectViewModel(get()) }
     viewModel { TabItemViewModel(get()) }
     viewModel { NaviViewModel(get()) }

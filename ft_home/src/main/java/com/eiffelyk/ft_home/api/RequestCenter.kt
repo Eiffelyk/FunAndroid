@@ -1,5 +1,7 @@
 package com.eiffelyk.ft_home.api
 
+import com.eiffelyk.ft_home.model.home.Banner
+import com.eiffelyk.ft_home.model.home.DataFeed
 import com.eiffelyk.ft_home.model.nav.NavigationItem
 import com.eiffelyk.ft_home.model.project.ProjectPageItem
 import com.eiffelyk.ft_home.model.project.ProjectTabItem
@@ -24,4 +26,10 @@ interface RequestCenter {
 
     @GET("/navi/json")
     suspend fun getNavigationData(): BaseModel<MutableList<NavigationItem>>
+
+    @GET("/banner/json")
+    suspend fun getBanner(): BaseModel<MutableList<Banner>>
+
+    @GET("/article/list/{count}/json")
+    suspend fun geHomeList(@Path("count") count: Int): BaseModel<DataFeed>
 }
